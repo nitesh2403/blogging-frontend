@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ArticleMeta } from '../components'
+import { ArticleComments, ArticleMeta } from '../components'
 import { useArticleQuery } from '../hooks'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -12,7 +12,7 @@ const { slug } = useParams()
 console.log('article',article)
 
 const getArticleBySlug = async (slug) => {
-    const {data} = await axios.get(`https://blogging-backend-9e2o.onrender.com/api/articles/${slug}`);
+    const {data} = await axios.get(`https://blogging-backend-k6f2.onrender.com/api/articles/${slug}`);
   
     console.log("getArticleBySlug", { data });
   
@@ -46,7 +46,9 @@ useEffect(() => {
           <ArticleMeta author={article?.author} createdAt={article?.createdAt} />
         </div>
         <div className="row">
-    
+            <div className='col-xs-12 col-md-8 offeset-md-2'>
+                <ArticleComments />
+            </div>
         </div>
       </div>
     </div>

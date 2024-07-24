@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 
 const getArticleBySlug = async (slug) => {
-    const {data} = await axios.get(`https://blogging-backend-9e2o.onrender.com/api/articles/${slug}`);
+    const {data} = await axios.get(`http://localhost:3001/api/articles/${slug}`);
   
     console.log("getCurrentUser", { data });
   
